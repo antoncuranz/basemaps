@@ -572,18 +572,19 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.tunnel_highway,
-        "line-width": {
-          "stops": [
-            [5, 0],
-            [6, 1],
-            [10, 4],
-            [14, 4],
-            [16, 12],
-            [18, 36],
-            [19, 80],
-            [20, 160]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          5, 0,
+          6, 1,
+          10, 4,
+          14, 4,
+          16, 12,
+          18, 36,
+          19, 80,
+          20, 160
+        ],
       },
     },
     {
@@ -643,15 +644,16 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_service_casing,
-        "line-width": {
-          "stops": [
-            [14, 1],
-            [16, 3],
-            [18, 12],
-            [19, 32],
-            [20, 48]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          14, 1,
+          16, 3,
+          18, 12,
+          19, 32,
+          20, 48
+        ],
       },
       "layout": {
         "line-join": "round",
@@ -672,22 +674,24 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_casing,
-        "line-width": {
-          "stops": [
-            [12, 2],
-            [14, 3],
-            [16, 6],
-            [18, 26],
-            [19, 64],
-            [20, 128]
-          ]
-        },
-        "line-opacity": {
-          "stops": [
-            [12.5, 0],
-            [13.5, 1]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12, 2,
+          14, 3,
+          16, 6,
+          18, 26,
+          19, 64,
+          20, 128
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12.5, 0,
+          13.5, 1
+        ],
       },
       "layout": {"line-cap": "round"}
     },
@@ -736,16 +740,17 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.major_casing_late,
-        "line-width": {
-          "stops": [
-            [11, 2],
-            [14, 5],
-            [16, 8],
-            [18, 30],
-            [19, 68],
-            [20, 138]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          11, 2,
+          14, 5,
+          16, 8,
+          18, 30,
+          19, 68,
+          20, 138
+        ],
       },
       "layout": {"line-cap": "round"}
     },
@@ -764,18 +769,19 @@ export function nolabels_layers(
       ],
       "paint": {
         "line-color": t.highway_casing_late,
-        "line-width": {
-          "stops": [
-            [5, 0],
-            [6, 2],
-            [10, 5],
-            [14, 5],
-            [16, 14],
-            [18, 38],
-            [19, 84],
-            [20, 168]
-          ]
-        }
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          5, 0,
+          6, 2,
+          10, 5,
+          14, 5,
+          16, 14,
+          18, 38,
+          19, 84,
+          20, 168
+        ],
       },
       "layout": {
         "line-join": "round",
@@ -796,15 +802,16 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.other,
-        "line-width": {
-          "stops": [
-            [15, 0],
-            [16, 4],
-            [18, 6],
-            [19, 10],
-            [20, 20]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          15, 0,
+          16, 4,
+          18, 6,
+          19, 10,
+          20, 20
+        ],
       },
     },
     {
@@ -842,15 +849,16 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_service,
-        "line-width": {
-          "stops": [
-            [14, 1],
-            [16, 2],
-            [18, 10],
-            [19, 28],
-            [20, 40]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          14, 1,
+          16, 2,
+          18, 10,
+          19, 28,
+          20, 40
+        ],
       },
       "layout": {
         "line-join": "round",
@@ -879,22 +887,24 @@ export function nolabels_layers(
           16,
           t.minor_b,
         ],
-        "line-width": {
-          "stops": [
-            [12, 1],
-            [14, 2],
-            [16, 5],
-            [18, 24],
-            [19, 60],
-            [20, 120]
-          ]
-        },
-        "line-opacity": {
-          "stops": [
-            [12, 0],
-            [13, 1]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12, 1,
+          14, 2,
+          16, 5,
+          18, 24,
+          19, 60,
+          20, 120
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          12, 0,
+          13, 1
+        ],
       },
       "layout": {"line-cap": "round"}
     },
@@ -947,16 +957,17 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.major,
-        "line-width": {
-          "stops": [
-            [11, 1],
-            [14, 4],
-            [16, 6],
-            [18, 28],
-            [19, 64],
-            [20, 130]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          11, 1,
+          14, 4,
+          16, 6,
+          18, 28,
+          19, 64,
+          20, 130
+        ],
       },
       "layout": {"line-cap": "round"}
     },
@@ -1011,18 +1022,19 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.highway,
-        "line-width": {
-          "stops": [
-            [5, 0],
-            [6, 1],
-            [10, 4],
-            [14, 4],
-            [16, 12],
-            [18, 36],
-            [19, 80],
-            [20, 160]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          5, 0,
+          6, 1,
+          10, 4,
+          14, 4,
+          16, 12,
+          18, 36,
+          19, 80,
+          20, 160
+        ],
       },
       "layout": {
         "line-join": "round",
@@ -1037,17 +1049,22 @@ export function nolabels_layers(
       filter: ["==", "kind", "rail"],
       paint: {
         "line-color": "rgb(177,187,196)",
-        "line-width": {
-          "stops": [
-            [8, 1],
-            [13, 1],
-            [15, 1],
-            [20, 14]
-          ]
-        },
-        "line-opacity": {
-          "stops": [[11, 0], [12, 1]]
-        }
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          8, 1,
+          13, 1,
+          15, 1,
+          20, 14
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          11, 0,
+          12, 1
+        ],
       },
     },
     {
@@ -1058,17 +1075,22 @@ export function nolabels_layers(
       filter: ["==", "kind", "rail"],
       paint: {
         "line-color": t.railway,
-        "line-width": {
-          "stops": [
-            [14, 0],
-            [15, 1],
-            [20, 10]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          14, 0,
+          15, 1,
+          20, 10
+        ],
         "line-dasharray": [2, 2],
-        "line-opacity": {
-          "stops": [[14, 0], [15, 1]]
-        }
+        "line-opacity": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          14, 0,
+          15, 1
+        ],
       },
     },
     {
@@ -1079,9 +1101,14 @@ export function nolabels_layers(
       filter: ["<=", "kind_detail", 2],
       paint: {
         "line-color": t.boundaries,
-        "line-width": {
-          "stops": [[2, 0], [3, 1], [10, 4]]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          2, 0,
+          3, 1,
+          10, 4
+        ],
         "line-dasharray": [
           "step",
           ["zoom"],
@@ -1099,9 +1126,14 @@ export function nolabels_layers(
       filter: [">", "kind_detail", 2],
       paint: {
         "line-color": t.boundaries,
-        "line-width": {
-          "stops": [[7, 0], [8, 1], [10, 2]]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7, 0,
+          8, 1,
+          10, 2
+        ],
         "line-dasharray": [
           "step",
           ["zoom"],
@@ -1204,16 +1236,17 @@ export function nolabels_layers(
       filter: ["all", ["has", "is_bridge"], ["==", "kind", "major_road"]],
       paint: {
         "line-color": t.bridges_major_casing,
-        "line-width": {
-          "stops": [
-            [11, 2],
-            [14, 5],
-            [16, 8],
-            [18, 30],
-            [19, 68],
-            [20, 138]
-          ]
-        }
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          11, 2,
+          14, 5,
+          16, 8,
+          18, 30,
+          19, 68,
+          20, 138
+        ],
       }
     },
     {
@@ -1292,16 +1325,17 @@ export function nolabels_layers(
       filter: ["all", ["has", "is_bridge"], ["==", "kind", "major_road"]],
       paint: {
         "line-color": t.major,
-        "line-width": {
-          "stops": [
-            [11, 1],
-            [14, 4],
-            [16, 6],
-            [18, 28],
-            [19, 64],
-            [20, 130]
-          ]
-        },
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          11, 1,
+          14, 4,
+          16, 6,
+          18, 28,
+          19, 64,
+          20, 130
+        ],
       },
       "layout": {"line-cap": "round"}
     },
