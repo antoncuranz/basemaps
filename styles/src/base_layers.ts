@@ -177,16 +177,16 @@ export function nolabels_layers(
         "fill-color": t.beach,
       },
     },
-    {
-      id: "landuse_zoo",
-      type: "fill",
-      source: source,
-      "source-layer": "landuse",
-      filter: ["in", "kind", "zoo"],
-      paint: {
-        "fill-color": t.zoo,
-      },
-    },
+    // {
+    //   id: "landuse_zoo",
+    //   type: "fill",
+    //   source: source,
+    //   "source-layer": "landuse",
+    //   filter: ["in", "kind", "zoo"],
+    //   paint: {
+    //     "fill-color": t.zoo,
+    //   },
+    // },
     {
       id: "landuse_aerodrome",
       type: "fill",
@@ -572,21 +572,28 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.tunnel_highway,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          3,
-          0,
-          6,
-          1.1,
-          12,
-          1.6,
-          15,
-          5,
-          18,
-          15,
-        ],
+        "line-width": {
+          "stops": [
+            [5, 0],
+            [6, 1],
+            [10, 4],
+            [14, 4],
+            [16, 12],
+            [18, 36],
+            [19, 80],
+            [20, 160]
+          ]
+        },
+      },
+    },
+    {
+      id: "buildings:outline",
+      type: "fill",
+      source: source,
+      "source-layer": "buildings",
+      filter: ["in", "kind", "building", "building_part"],
+      paint: {
+        "fill-color": "#DFDBD7",
       },
     },
     {
@@ -597,7 +604,7 @@ export function nolabels_layers(
       filter: ["in", "kind", "building", "building_part"],
       paint: {
         "fill-color": t.buildings,
-        "fill-opacity": 0.5,
+        "fill-translate": [-2, -4]
       },
     },
     {
@@ -636,25 +643,20 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_service_casing,
-        "line-gap-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          13,
-          0,
-          18,
-          8,
-        ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          13,
-          0,
-          13.5,
-          0.8,
-        ],
+        "line-width": {
+          "stops": [
+            [14, 1],
+            [16, 3],
+            [18, 12],
+            [19, 32],
+            [20, 48]
+          ]
+        },
       },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      }
     },
     {
       id: "roads_minor_casing",
@@ -670,29 +672,24 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_casing,
-        "line-gap-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          11,
-          0,
-          12.5,
-          0.5,
-          15,
-          2,
-          18,
-          11,
-        ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          12,
-          0,
-          12.5,
-          1,
-        ],
+        "line-width": {
+          "stops": [
+            [12, 2],
+            [14, 3],
+            [16, 6],
+            [18, 26],
+            [19, 64],
+            [20, 128]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [12.5, 0],
+            [13.5, 1]
+          ]
+        },
       },
+      "layout": {"line-cap": "round"}
     },
     {
       id: "roads_link_casing",
@@ -739,29 +736,18 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.major_casing_late,
-        "line-gap-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          6,
-          0,
-          12,
-          1.6,
-          15,
-          3,
-          18,
-          13,
-        ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          9,
-          0,
-          9.5,
-          1,
-        ],
+        "line-width": {
+          "stops": [
+            [11, 2],
+            [14, 5],
+            [16, 8],
+            [18, 30],
+            [19, 68],
+            [20, 138]
+          ]
+        },
       },
+      "layout": {"line-cap": "round"}
     },
     {
       id: "roads_highway_casing_late",
@@ -776,31 +762,25 @@ export function nolabels_layers(
         ["==", "kind", "highway"],
         ["!has", "is_link"],
       ],
-      paint: {
+      "paint": {
         "line-color": t.highway_casing_late,
-        "line-gap-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          3,
-          0,
-          3.5,
-          0.5,
-          18,
-          15,
-        ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          7,
-          0,
-          7.5,
-          1,
-          20,
-          15,
-        ],
+        "line-width": {
+          "stops": [
+            [5, 0],
+            [6, 2],
+            [10, 5],
+            [14, 5],
+            [16, 14],
+            [18, 38],
+            [19, 84],
+            [20, 168]
+          ]
+        }
       },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      }
     },
     {
       id: "roads_other",
@@ -816,16 +796,15 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.other,
-        "line-dasharray": [3, 1],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          14,
-          0,
-          20,
-          7,
-        ],
+        "line-width": {
+          "stops": [
+            [15, 0],
+            [16, 4],
+            [18, 6],
+            [19, 10],
+            [20, 20]
+          ]
+        },
       },
     },
     {
@@ -863,16 +842,20 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.minor_service,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          13,
-          0,
-          18,
-          8,
-        ],
+        "line-width": {
+          "stops": [
+            [14, 1],
+            [16, 2],
+            [18, 10],
+            [19, 28],
+            [20, 40]
+          ]
+        },
       },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      }
     },
     {
       id: "roads_minor",
@@ -896,20 +879,24 @@ export function nolabels_layers(
           16,
           t.minor_b,
         ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          11,
-          0,
-          12.5,
-          0.5,
-          15,
-          2,
-          18,
-          11,
-        ],
+        "line-width": {
+          "stops": [
+            [12, 1],
+            [14, 2],
+            [16, 5],
+            [18, 24],
+            [19, 60],
+            [20, 120]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [12, 0],
+            [13, 1]
+          ]
+        },
       },
+      "layout": {"line-cap": "round"}
     },
     {
       id: "roads_major_casing_early",
@@ -960,20 +947,18 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.major,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          6,
-          0,
-          12,
-          1.6,
-          15,
-          3,
-          18,
-          13,
-        ],
+        "line-width": {
+          "stops": [
+            [11, 1],
+            [14, 4],
+            [16, 6],
+            [18, 28],
+            [19, 64],
+            [20, 130]
+          ]
+        },
       },
+      "layout": {"line-cap": "round"}
     },
     {
       id: "roads_highway_casing_early",
@@ -1026,21 +1011,43 @@ export function nolabels_layers(
       ],
       paint: {
         "line-color": t.highway,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          3,
-          0,
-          6,
-          1.1,
-          12,
-          1.6,
-          15,
-          5,
-          18,
-          15,
-        ],
+        "line-width": {
+          "stops": [
+            [5, 0],
+            [6, 1],
+            [10, 4],
+            [14, 4],
+            [16, 12],
+            [18, 36],
+            [19, 80],
+            [20, 160]
+          ]
+        },
+      },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      }
+    },
+    {
+      id: "roads_rail:outline",
+      type: "line",
+      source: source,
+      "source-layer": "roads",
+      filter: ["==", "kind", "rail"],
+      paint: {
+        "line-color": "rgb(177,187,196)",
+        "line-width": {
+          "stops": [
+            [8, 1],
+            [13, 1],
+            [15, 1],
+            [20, 14]
+          ]
+        },
+        "line-opacity": {
+          "stops": [[11, 0], [12, 1]]
+        }
       },
     },
     {
@@ -1050,20 +1057,18 @@ export function nolabels_layers(
       "source-layer": "roads",
       filter: ["==", "kind", "rail"],
       paint: {
-        "line-dasharray": [0.3, 0.75],
-        "line-opacity": 0.5,
         "line-color": t.railway,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          3,
-          0,
-          6,
-          0.15,
-          18,
-          9,
-        ],
+        "line-width": {
+          "stops": [
+            [14, 0],
+            [15, 1],
+            [20, 10]
+          ]
+        },
+        "line-dasharray": [2, 2],
+        "line-opacity": {
+          "stops": [[14, 0], [15, 1]]
+        }
       },
     },
     {
@@ -1074,7 +1079,9 @@ export function nolabels_layers(
       filter: ["<=", "kind_detail", 2],
       paint: {
         "line-color": t.boundaries,
-        "line-width": 0.7,
+        "line-width": {
+          "stops": [[2, 0], [3, 1], [10, 4]]
+        },
         "line-dasharray": [
           "step",
           ["zoom"],
@@ -1092,7 +1099,9 @@ export function nolabels_layers(
       filter: [">", "kind_detail", 2],
       paint: {
         "line-color": t.boundaries,
-        "line-width": 0.4,
+        "line-width": {
+          "stops": [[7, 0], [8, 1], [10, 2]]
+        },
         "line-dasharray": [
           "step",
           ["zoom"],
@@ -1195,27 +1204,17 @@ export function nolabels_layers(
       filter: ["all", ["has", "is_bridge"], ["==", "kind", "major_road"]],
       paint: {
         "line-color": t.bridges_major_casing,
-        "line-gap-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          7,
-          0,
-          7.5,
-          0.5,
-          18,
-          10,
-        ],
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          9,
-          0,
-          9.5,
-          1.5,
-        ],
-      },
+        "line-width": {
+          "stops": [
+            [11, 2],
+            [14, 5],
+            [16, 8],
+            [18, 30],
+            [19, 68],
+            [20, 138]
+          ]
+        }
+      }
     },
     {
       id: "roads_bridges_other",
@@ -1292,21 +1291,19 @@ export function nolabels_layers(
       minzoom: 12,
       filter: ["all", ["has", "is_bridge"], ["==", "kind", "major_road"]],
       paint: {
-        "line-color": t.bridges_major,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          6,
-          0,
-          12,
-          1.6,
-          15,
-          3,
-          18,
-          13,
-        ],
+        "line-color": t.major,
+        "line-width": {
+          "stops": [
+            [11, 1],
+            [14, 4],
+            [16, 6],
+            [18, 28],
+            [19, 64],
+            [20, 130]
+          ]
+        },
       },
+      "layout": {"line-cap": "round"}
     },
     {
       id: "roads_bridges_highway_casing",
