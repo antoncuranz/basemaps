@@ -195,6 +195,7 @@ export function nolabels_layers(
       filter: ["in", "kind", "aerodrome"],
       paint: {
         "fill-color": t.aerodrome,
+        "fill-opacity": 0.3
       },
     },
     {
@@ -209,13 +210,12 @@ export function nolabels_layers(
           "interpolate",
           ["exponential", 1.6],
           ["zoom"],
-          10,
-          0,
-          12,
-          4,
-          18,
-          30,
-        ],
+          5, 0,
+          6, 1,
+          12, 4,
+          18, 100,
+          20, 200
+        ]
       },
     },
     {
@@ -231,13 +231,14 @@ export function nolabels_layers(
           "interpolate",
           ["exponential", 1.6],
           ["zoom"],
-          13,
-          0,
-          13.5,
-          1,
-          15,
-          6,
-        ],
+          9, 0,
+          10, 1,
+          14, 4,
+          16, 6,
+          18, 28,
+          19, 64,
+          20, 130
+        ]
       },
     },
     {
@@ -585,27 +586,6 @@ export function nolabels_layers(
           19, 80,
           20, 160
         ],
-      },
-    },
-    {
-      id: "buildings:outline",
-      type: "fill",
-      source: source,
-      "source-layer": "buildings",
-      filter: ["in", "kind", "building", "building_part"],
-      paint: {
-        "fill-color": "#DFDBD7",
-      },
-    },
-    {
-      id: "buildings",
-      type: "fill",
-      source: source,
-      "source-layer": "buildings",
-      filter: ["in", "kind", "building", "building_part"],
-      paint: {
-        "fill-color": t.buildings,
-        "fill-translate": [-2, -4]
       },
     },
     {
@@ -1095,56 +1075,6 @@ export function nolabels_layers(
       },
     },
     {
-      id: "boundaries_country",
-      type: "line",
-      source: source,
-      "source-layer": "boundaries",
-      filter: ["<=", "kind_detail", 2],
-      paint: {
-        "line-color": t.boundaries,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          2, 0,
-          3, 1,
-          10, 4
-        ],
-        "line-dasharray": [
-          "step",
-          ["zoom"],
-          ["literal", [2, 0]],
-          4,
-          ["literal", [2, 1]],
-        ],
-      },
-    },
-    {
-      id: "boundaries",
-      type: "line",
-      source: source,
-      "source-layer": "boundaries",
-      filter: [">", "kind_detail", 2],
-      paint: {
-        "line-color": t.boundaries,
-        "line-width": [
-          "interpolate",
-          ["exponential", 1.6],
-          ["zoom"],
-          7, 0,
-          8, 1,
-          10, 2
-        ],
-        "line-dasharray": [
-          "step",
-          ["zoom"],
-          ["literal", [2, 0]],
-          4,
-          ["literal", [2, 1]],
-        ],
-      },
-    },
-    {
       id: "roads_bridges_other_casing",
       type: "line",
       source: source,
@@ -1408,6 +1338,91 @@ export function nolabels_layers(
         ],
       },
     },
+    {
+      id: "roads_oneway",
+      type: "symbol",
+      source: source,
+      "source-layer": "roads",
+      minzoom: 16,
+      filter: ["==", ["get", "oneway"], "yes"],
+      layout: {
+        "symbol-placement": "line",
+        "icon-image": "arrow",
+        "icon-rotate": 90,
+        "symbol-spacing": 100,
+      },
+    },
+    {
+      id: "buildings:outline",
+      type: "fill",
+      source: source,
+      "source-layer": "buildings",
+      filter: ["in", "kind", "building", "building_part"],
+      paint: {
+        "fill-color": "#DFDBD7",
+      },
+    },
+    {
+      id: "buildings",
+      type: "fill",
+      source: source,
+      "source-layer": "buildings",
+      filter: ["in", "kind", "building", "building_part"],
+      paint: {
+        "fill-color": t.buildings,
+        "fill-translate": [-2, -4]
+      },
+    },
+    {
+      id: "boundaries_country",
+      type: "line",
+      source: source,
+      "source-layer": "boundaries",
+      filter: ["<=", "kind_detail", 2],
+      paint: {
+        "line-color": t.boundaries,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          2, 0,
+          3, 1,
+          10, 4
+        ],
+        "line-dasharray": [
+          "step",
+          ["zoom"],
+          ["literal", [2, 0]],
+          4,
+          ["literal", [2, 1]],
+        ],
+      },
+    },
+    {
+      id: "boundaries",
+      type: "line",
+      source: source,
+      "source-layer": "boundaries",
+      filter: [">", "kind_detail", 2],
+      paint: {
+        "line-color": t.boundaries,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.6],
+          ["zoom"],
+          7, 0,
+          8, 1,
+          10, 2
+        ],
+        "line-dasharray": [
+          "step",
+          ["zoom"],
+          ["literal", [2, 0]],
+          4,
+          ["literal", [2, 1]],
+        ],
+      },
+    },
   ];
 }
 
@@ -1459,20 +1474,6 @@ export function labels_layers(
         "text-color": t.ocean_label,
         "text-halo-color": t.water,
         "text-halo-width": 1,
-      },
-    },
-    {
-      id: "roads_oneway",
-      type: "symbol",
-      source: source,
-      "source-layer": "roads",
-      minzoom: 16,
-      filter: ["==", ["get", "oneway"], "yes"],
-      layout: {
-        "symbol-placement": "line",
-        "icon-image": "arrow",
-        "icon-rotate": 90,
-        "symbol-spacing": 100,
       },
     },
     {
@@ -1625,7 +1626,6 @@ export function labels_layers(
                     "peak",
                     "zoo",
                     "garden",
-                    "bench",
                     "aerodrome",
                     "station",
                     "bus_stop",
@@ -1635,8 +1635,9 @@ export function labels_layers(
                     "library",
                     "school",
                     "animal",
-                    "toilets",
                     "drinking_water",
+                    "attraction",
+                    "viewpoint",
                   ],
                 ],
               ],
@@ -1713,6 +1714,8 @@ export function labels_layers(
                       "animal",
                       "toilets",
                       "drinking_water",
+                      "attraction",
+                      "viewpoint",
                     ],
                   ],
                 ],

@@ -28,6 +28,8 @@
     "school": "slategray",
     "animal": "slategray",
     "toilets": "slategray",
-    "drinking_water": "slategray"
+    "drinking_water": "slategray",
+    "attraction": "slategray",
+    "viewpoint": "slategray"
   }
 }
