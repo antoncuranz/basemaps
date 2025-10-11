@@ -20,7 +20,7 @@ export async function generateStyle(args: string[]) {
   } else if (flavorArg.endsWith(".js") || flavorArg.endsWith(".ts")) {
     flavor = (await import(path.resolve(flavorArg))).default;
   } else {
-    if (flavorArg === "light" || flavorArg === "dark") {
+    if (flavorArg === "streets" || flavorArg === "light" || flavorArg === "dark") {
       spriteValue = flavorArg;
     }
     flavor = namedFlavor(flavorArg);
@@ -40,11 +40,11 @@ export async function generateStyle(args: string[]) {
     },
     layers: layers("protomaps", flavor, { lang: lang }),
     glyphs:
-      "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
+      "https://antoncuranz.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
   };
 
   if (spriteValue) {
-    style.sprite = `https://protomaps.github.io/basemaps-assets/sprites/v4/${flavorArg}`;
+    style.sprite = `https://antoncuranz.github.io/basemaps-assets/sprites/v4/${flavorArg}`;
   }
 
   return JSON.stringify(style, null, 2);

@@ -37,8 +37,8 @@ export interface Flavor {
   minor_service_casing: string;
   minor_casing: string;
   link_casing: string;
-  major_casing_late: string;
-  highway_casing_late: string;
+  major_casing: string;
+  highway_casing: string;
   other: string;
   minor_service: string;
   minor_a: string;
@@ -147,8 +147,8 @@ export const STREETS: Flavor = {
   minor_service_casing: "#A1ABC6",
   minor_casing: "#A1ABC6",
   link_casing: "#e0e0e0",
-  major_casing_late: "#A1ABC6",
-  highway_casing_late: "#A1ABC6",
+  major_casing: "#A1ABC6",
+  highway_casing: "#A1ABC6",
   other: "#EEEAEE",
   minor_service: "#BEC5D8",
   minor_a: "#BEC5D8",
@@ -250,8 +250,8 @@ export const LIGHT: Flavor = {
   minor_service_casing: "#e0e0e0",
   minor_casing: "#e0e0e0",
   link_casing: "#e0e0e0",
-  major_casing_late: "#e0e0e0",
-  highway_casing_late: "#e0e0e0",
+  major_casing: "#e0e0e0",
+  highway_casing: "#e0e0e0",
   other: "#ebebeb",
   minor_service: "#ebebeb",
   minor_a: "#ebebeb",
@@ -353,8 +353,8 @@ export const DARK: Flavor = {
   minor_service_casing: "#1f1f1f",
   minor_casing: "#1f1f1f",
   link_casing: "#1f1f1f",
-  major_casing_late: "#1f1f1f",
-  highway_casing_late: "#1f1f1f",
+  major_casing: "#1f1f1f",
+  highway_casing: "#1f1f1f",
   other: "#333333",
   minor_service: "#333333",
   minor_a: "#3d3d3d",
@@ -456,8 +456,8 @@ export const WHITE: Flavor = {
   minor_service_casing: "#ffffff",
   minor_casing: "#ffffff",
   link_casing: "#ffffff",
-  major_casing_late: "#ffffff",
-  highway_casing_late: "#ffffff",
+  major_casing: "#ffffff",
+  highway_casing: "#ffffff",
   other: "#f5f5f5",
   minor_service: "#f5f5f5",
   minor_a: "#ebebeb",
@@ -538,8 +538,8 @@ export const GRAYSCALE: Flavor = {
   minor_service_casing: "#cccccc",
   minor_casing: "#cccccc",
   link_casing: "#cccccc",
-  major_casing_late: "#cccccc",
-  highway_casing_late: "#cccccc",
+  major_casing: "#cccccc",
+  highway_casing: "#cccccc",
   other: "#e0e0e0",
   minor_service: "#e0e0e0",
   minor_a: "#ebebeb",
@@ -620,8 +620,8 @@ export const BLACK: Flavor = {
   minor_service_casing: "#141414",
   minor_casing: "#141414",
   link_casing: "#141414",
-  major_casing_late: "#141414",
-  highway_casing_late: "#141414",
+  major_casing: "#141414",
+  highway_casing: "#141414",
   other: "#1f1f1f",
   minor_service: "#1f1f1f",
   minor_a: "#292929",

@@ -1,4 +1,5 @@
 all:
+	./target/release/spritegen refill.svg flavors/streets.json dist/streets
 	./target/release/spritegen refill.svg flavors/light.json dist/light
 	./target/release/spritegen refill.svg flavors/dark.json dist/dark
 	./target/release/spritegen refill.svg flavors/white.json dist/white
