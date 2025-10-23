@@ -1824,7 +1824,7 @@ export function labels_layers(
         "icon-image": [
           "step",
           ["zoom"],
-          "capital",
+          "townspot",
           8,
           "",
         ],
