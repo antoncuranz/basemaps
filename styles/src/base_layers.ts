@@ -84,7 +84,7 @@ export function nolabels_layers(
         "airfield",
       ],
       paint: {
-        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0, 11, 1],
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0, 7, 1],
         "fill-color": [
           "case",
           [
@@ -1824,7 +1824,7 @@ export function labels_layers(
         "icon-image": [
           "step",
           ["zoom"],
-          ["case", ["==", ["get", "capital"], "yes"], "capital", "townspot"],
+          "capital",
           8,
           "",
         ],
